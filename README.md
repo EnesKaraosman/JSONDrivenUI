@@ -166,7 +166,7 @@ OK JSON but how?
 <details>
   <summary>Profile Row</summary>
   
-  <img src="../master/Sources/SwiftyChat/Preview/profile_row.png" width="240"/>
+  <img src="../main/Sources/JSONDrivenUI/Preview/profile_row.png" width="240"/>
     
 ```json
 {
@@ -225,7 +225,7 @@ OK JSON but how?
 <details>
   <summary>Complex Page</summary>
   
-  <img src="../master/Sources/SwiftyChat/Preview/complex.png" width="240"/>
+  <img src="../main/Sources/JSONDrivenUI/Preview/complex.png" width="240"/>
     
 ```json
 {
