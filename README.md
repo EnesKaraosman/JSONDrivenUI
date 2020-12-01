@@ -52,7 +52,7 @@ OK JSON but how?
     },
     "properties": {
         "fontWeight": "semibold",
-        "font": "bold"
+        "font": "body"
     }
 }
 ```
@@ -188,9 +188,11 @@ If axis is vertical placed in VStack, otherwise in HStack.
 #### Examples
 
 <details>
-  <summary>Profile Row</summary>
+  <summary>
+    <img src="../main/Sources/JSONDrivenUI/Preview/profile_row.png" width="240"/>
+  </summary>
   
-  <img src="../main/Sources/JSONDrivenUI/Preview/profile_row.png" width="240"/>
+<!--   <img src="../main/Sources/JSONDrivenUI/Preview/profile_row.png" width="240"/> -->
     
 ```json
 {
@@ -247,9 +249,9 @@ If axis is vertical placed in VStack, otherwise in HStack.
 </details>
 
 <details>
-  <summary>Complex Page</summary>
-  
-  <img src="../main/Sources/JSONDrivenUI/Preview/complex.png" width="240"/>
+  <summary>
+    <img src="../main/Sources/JSONDrivenUI/Preview/complex.png" width="240"/>
+  </summary>
     
 ```json
 {
