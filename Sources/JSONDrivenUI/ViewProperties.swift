@@ -26,8 +26,21 @@ internal class ViewProperties: Codable {
     /// top, bottom, center, firstTextBaseline, lastTextBaseline
     var verticalAlignment: String?
     
+    /// vertical, horizontal (for ScrollView)
+    var axis: String?
+    var showsIndicators: Bool?
+    
 }
 
+// ScrollView
+extension SwiftUI.Axis.Set {
+    static let pick: [String : SwiftUI.Axis.Set] = [
+        "vertical"   : .vertical,
+        "horizontal" : .horizontal
+    ]
+}
+
+// VStack
 extension SwiftUI.HorizontalAlignment {
     static let pick: [String : SwiftUI.HorizontalAlignment] = [
         "leading"  : .leading,
@@ -36,6 +49,7 @@ extension SwiftUI.HorizontalAlignment {
     ]
 }
 
+// HStack
 extension SwiftUI.VerticalAlignment {
     static let pick: [String : SwiftUI.VerticalAlignment] = [
         "top"               : .top,
@@ -46,6 +60,7 @@ extension SwiftUI.VerticalAlignment {
     ]
 }
 
+// Font
 extension SwiftUI.Font {
     static let pick: [String : Font] = [
         "largeTitle"  : .largeTitle,
@@ -59,6 +74,7 @@ extension SwiftUI.Font {
     ]
 }
 
+// FontWeight
 extension SwiftUI.Font.Weight {
     static let pick: [String : Font.Weight] = [
         "ultraLight" : .ultraLight,

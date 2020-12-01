@@ -6,10 +6,10 @@ Simply construct `JSONDataView(json: Data)` view to setup UI.
 
 OK JSON but how? 
 
-* Specify your view's `type`
-* `properties` of it
-* `values` (like text, imageUrl, systemIconName, localImageName)
-* `subviews` (for stacks or list)
+* Specify your view's `type` ([ViewType](../main/Sources/JSONDrivenUI/ViewType.swift))
+* `properties` of it ([ViewProperties](../main/Sources/JSONDrivenUI/ViewProperties.swift) )
+* `values` (like text, imageUrl, systemIconName, localImageName) ([Values](../main/Sources/JSONDrivenUI/Values.swift) )
+* `subviews` (for stacks, list & scrollView)
 
 
 ### Supported View Types
@@ -146,6 +146,30 @@ OK JSON but how?
 ```json
 {
   "type": "List",
+  "subviews": [
+    { ... },
+    { ... },
+    { ... }
+  ]
+}
+```
+
+</details>
+
+<details>
+    <summary>ScrollView</summary>
+
+Scroll view content (subviews) automatically placed in Stack according to given axis.
+<br>
+If axis is vertical placed in VStack, otherwise in HStack.
+
+```json
+{
+  "type": "ScrollView",
+  "properties": {
+    "axis": "vertical",
+    "showsIndicators": true
+  }
   "subviews": [
     { ... },
     { ... },

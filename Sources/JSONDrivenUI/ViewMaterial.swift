@@ -21,10 +21,3 @@ internal class ViewMaterial: Codable, Identifiable {
         case subviews
     }
 }
-
-internal class Values: Codable {
-    var text: String?
-    var imageUrl: String?
-    var systemIconName: String?
-    var localImageName: String?
-}
