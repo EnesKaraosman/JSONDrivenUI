@@ -6,7 +6,7 @@ import PackageDescription
 let package = Package(
     name: "JSONDrivenUI",
     platforms: [
-        .iOS(.v13)
+        .iOS(.v14)
     ],
     products: [
         // Products define the executables and libraries a package produces, and make them visible to other packages.
@@ -15,8 +15,7 @@ let package = Package(
             targets: ["JSONDrivenUI"]),
     ],
     dependencies: [
-        // Dependencies declare other packages that this package depends on.
-         .package(url: "https://github.com/onevcat/Kingfisher.git", from: "5.15.7"),
+        .package(url: "https://github.com/onevcat/Kingfisher.git", from: "7.10.1"),
     ],
     targets: [
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
@@ -24,11 +23,9 @@ let package = Package(
         .target(
             name: "JSONDrivenUI",
             dependencies: [
-                .product(name: "KingfisherSwiftUI", package: "Kingfisher")
+                .byName(name: "Kingfisher"),
             ],
-            exclude: [
-                "Preview"
-            ]),
+            exclude: ["Preview"]),
         .testTarget(
             name: "JSONDrivenUITests",
             dependencies: ["JSONDrivenUI"]),
