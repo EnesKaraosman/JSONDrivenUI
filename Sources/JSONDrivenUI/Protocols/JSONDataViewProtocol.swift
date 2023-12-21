@@ -8,8 +8,7 @@
 import Foundation
 
 internal protocol JSONDataViewProtocol: PresentableProtocol {
-
     var json: Data { get }
-    init(json: Data)
     
+    init(json: Data)
 }

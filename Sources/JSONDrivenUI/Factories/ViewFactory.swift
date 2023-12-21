@@ -63,6 +63,22 @@ internal struct ViewFactory: PresentableProtocol {
         }
     }
     
+    // MARK: - LazyVStack
+    @ViewBuilder func lazyVstack() -> some View {
+        if let subviews = material.subviews {
+            let spacing = material.properties?.spacing.toCGFloat() ?? 0
+            let horizontalAlignmentKey = material.properties?.horizontalAlignment ?? "center"
+            let horizontalAlignment = HorizontalAlignment.pick[horizontalAlignmentKey] ?? .center
+            LazyVStack(alignment: horizontalAlignment, spacing: spacing) {
+                ForEach(subviews) {
+                    ViewFactory(material: $0).toPresentable()
+                }
+            }
+        } else {
+            Text("Please Add Subview for LazyVStack")
+        }
+    }
+    
     // MARK: - HStack
     @ViewBuilder func hstack() -> some View {
         if let subviews = material.subviews {
@@ -70,6 +86,22 @@ internal struct ViewFactory: PresentableProtocol {
             let verticalAlignmentKey = material.properties?.verticalAlignment ?? "center"
             let verticalAlignment = VerticalAlignment.pick[verticalAlignmentKey] ?? .center
             HStack(alignment: verticalAlignment, spacing: spacing) {
+                ForEach(subviews) {
+                    ViewFactory(material: $0).toPresentable()
+                }
+            }
+        } else {
+            Text("Please Add Subview for LazyHStack")
+        }
+    }
+    
+    // MARK: - HStack
+    @ViewBuilder func lazyHstack() -> some View {
+        if let subviews = material.subviews {
+            let spacing = material.properties?.spacing.toCGFloat() ?? 0
+            let verticalAlignmentKey = material.properties?.verticalAlignment ?? "center"
+            let verticalAlignment = VerticalAlignment.pick[verticalAlignmentKey] ?? .center
+            LazyHStack(alignment: verticalAlignment, spacing: spacing) {
                 ForEach(subviews) {
                     ViewFactory(material: $0).toPresentable()
                 }
@@ -133,6 +165,8 @@ internal struct ViewFactory: PresentableProtocol {
         switch material.type {
         case .ScrollView: scrollView()
         case .List: list()
+        case .LazyVStack: lazyVstack()
+        case .LazyHStack: lazyHstack()
         case .VStack: vstack()
         case .HStack: hstack()
         case .ZStack: zstack()

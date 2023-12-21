@@ -8,7 +8,6 @@
 import SwiftUI
 
 internal struct ModifierFactory {
-    
     /// Applies Frame in case `width` & `height` is not nil.
     struct FrameModifier: ViewModifier {
         var width: CGFloat? = nil
@@ -24,8 +23,8 @@ internal struct ModifierFactory {
         var foregroundColor: Color?
         
         @ViewBuilder func body(content: Content) -> some View {
-            if let color = foregroundColor {
-                content.foregroundColor(color)
+            if let foregroundColor {
+                content.foregroundColor(foregroundColor)
             } else {
                 content
             }
@@ -37,7 +36,7 @@ internal struct ModifierFactory {
         var padding: CGFloat?
         
         @ViewBuilder func body(content: Content) -> some View {
-            if let padding = padding {
+            if let padding {
                 content.padding(padding)
             } else {
                 content
@@ -51,12 +50,11 @@ internal struct ModifierFactory {
         var borderWidth: CGFloat?
         
         @ViewBuilder func body(content: Content) -> some View {
-            if let borderWidth = borderWidth, let borderColor = borderColor {
+            if let borderWidth, let borderColor {
                 content.border(borderColor, width: borderWidth)
             } else {
                 content
             }
         }
     }
-    
 }
