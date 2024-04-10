@@ -5,7 +5,6 @@
 //  Created by Enes Karaosman on 27.11.2020.
 //
 
-import UIKit
 import SwiftUI
 
 internal class ViewProperties: Codable {
