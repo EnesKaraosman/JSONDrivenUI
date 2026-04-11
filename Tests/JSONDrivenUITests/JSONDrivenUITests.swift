@@ -2,14 +2,25 @@ import XCTest
 @testable import JSONDrivenUI
 
 final class JSONDrivenUITests: XCTestCase {
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
-//        XCTAssertEqual(JSONDrivenUI().text, "Hello, World!")
+    func testJSONDataViewInitWithData() {
+        let json = """
+        { "type": "Text", "values": { "text": "Hello" } }
+        """
+        let view = JSONDataView(json: Data(json.utf8))
+        XCTAssertEqual(view.json, Data(json.utf8))
     }
 
-    static var allTests = [
-        ("testExample", testExample),
-    ]
+    func testJSONDataViewInitWithString() {
+        let json = """
+        { "type": "Text", "values": { "text": "Hello" } }
+        """
+        let view = JSONDataView(jsonString: json)
+        XCTAssertEqual(view.json, Data(json.utf8))
+    }
+
+    func testJSONDataViewActionCallbackIsStored() {
+        var called = false
+        let view = JSONDataView(jsonString: "{}") { _ in called = true }
+        XCTAssertNotNil(view.onAction)
+    }
 }

@@ -7,28 +7,51 @@
 
 import SwiftUI
 
-internal class ViewProperties: Codable {
-    var font: String? = "body"
-    var fontWeight: String? = "body"
-    var foregroundColor: String? = "#ffffff" // Hex
-    var borderColor: String? = "#ff0000"// Hex
-    var borderWidth: Int? = 0
-    var padding: Int? = 0
-    var spacing: Int? = 0
-    var width: Float?
-    var height: Float?
-    var minLength: Float? // Spacer
+public final class ViewProperties: Codable, @unchecked Sendable {
+    public var font: String?
+    public var fontWeight: String?
+    public var foregroundColor: String?
+    public var borderColor: String?
+    public var borderWidth: Int?
+    public var padding: Int?
+    public var spacing: Int?
+    public var width: Float?
+    public var height: Float?
+    public var maxWidth: Float?
+    public var maxHeight: Float?
+    public var minLength: Float?
 
     /// leading, center, trailing
-    var horizontalAlignment: String?
+    public var horizontalAlignment: String?
 
     /// top, bottom, center, firstTextBaseline, lastTextBaseline
-    var verticalAlignment: String?
-    
+    public var verticalAlignment: String?
+
     /// vertical, horizontal (for ScrollView)
-    var axis: String?
-    var showsIndicators: Bool?
-    
+    public var axis: String?
+    public var showsIndicators: Bool?
+
+    // Visual modifiers
+    public var backgroundColor: String?
+    public var cornerRadius: Float?
+    public var opacity: Float?
+    public var shadowRadius: Float?
+    public var shadowColor: String?
+    public var shadowX: Float?
+    public var shadowY: Float?
+    public var rotation: Float?
+    public var blur: Float?
+    public var grayscale: Float?
+
+    /// "circle", "capsule", "rectangle"
+    public var clipShape: String?
+
+    // Accessibility
+    public var accessibilityLabel: String?
+    public var accessibilityHint: String?
+    public var accessibilityHidden: Bool?
+
+    public init() {}
 }
 
 // ScrollView

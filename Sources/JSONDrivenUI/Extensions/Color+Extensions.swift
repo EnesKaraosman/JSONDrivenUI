@@ -8,8 +8,8 @@
 import SwiftUI
 
 internal extension Color {
-    
-    init(hex string: String) {
+
+    init?(hex string: String) {
         var string: String = string.trimmingCharacters(in: CharacterSet.whitespacesAndNewlines)
         if string.hasPrefix("#") {
             _ = string.removeFirst()
@@ -78,7 +78,7 @@ internal extension Color {
             self.init(.sRGB, red: red, green: green, blue: blue, opacity: alpha)
 
         } else {
-            self.init(.sRGB, red: 1, green: 1, blue: 1, opacity: 1)
+            return nil
         }
     }
 }

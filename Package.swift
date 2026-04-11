@@ -1,13 +1,12 @@
-// swift-tools-version:5.8
-// The swift-tools-version declares the minimum version of Swift required to build this package.
+// swift-tools-version:5.9
 
 import PackageDescription
 
 let package = Package(
     name: "JSONDrivenUI",
     platforms: [
-        .iOS(.v14),
-        .macOS(.v12)
+        .iOS(.v17),
+        .macOS(.v14)
     ],
     products: [
         .library(
@@ -15,7 +14,7 @@ let package = Package(
             targets: ["JSONDrivenUI"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/onevcat/Kingfisher.git", from: "7.11.0"),
+        .package(url: "https://github.com/onevcat/Kingfisher.git", from: "8.0.0"),
     ],
     targets: [
         .target(

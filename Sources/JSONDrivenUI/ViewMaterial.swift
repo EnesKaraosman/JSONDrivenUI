@@ -7,14 +7,16 @@
 
 import Foundation
 
-internal class ViewMaterial: Codable, Identifiable {
-    var id = UUID()
-    var type: ViewType?
-    var values: Values?
-    var properties: ViewProperties?
-    var subviews: [ViewMaterial]?
-    
-    enum CodingKeys: String, CodingKey {
+public final class ViewMaterial: Codable, Identifiable, @unchecked Sendable {
+    public var id = UUID()
+    public var type: ViewType?
+    public var values: Values?
+    public var properties: ViewProperties?
+    public var subviews: [ViewMaterial]?
+
+    public init() {}
+
+    public enum CodingKeys: String, CodingKey {
         case type
         case values
         case properties
