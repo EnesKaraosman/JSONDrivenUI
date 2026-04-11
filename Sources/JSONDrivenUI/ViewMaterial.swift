@@ -7,7 +7,7 @@
 
 import Foundation
 
-public class ViewMaterial: Codable, Identifiable {
+public final class ViewMaterial: Codable, Identifiable, @unchecked Sendable {
     public var id = UUID()
     public var type: ViewType?
     public var values: Values?
@@ -16,7 +16,7 @@ public class ViewMaterial: Codable, Identifiable {
 
     public init() {}
 
-    enum CodingKeys: String, CodingKey {
+    public enum CodingKeys: String, CodingKey {
         case type
         case values
         case properties

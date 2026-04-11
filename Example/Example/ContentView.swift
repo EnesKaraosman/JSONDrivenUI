@@ -50,6 +50,9 @@ struct MoreSamplesView: View {
     var body: some View {
         NavigationStack {
             List {
+                NavigationLink("SwiftUI to JSON") {
+                    SwiftUIParserSampleView()
+                }
                 NavigationLink("Builder DSL") {
                     BuilderSampleView()
                 }

@@ -23,7 +23,7 @@ let complexSample = """
         {
             "type": "Image",
             "values": {
-                "imageUrl": "http://picsum.photos/400/200"
+                "imageUrl": "https://picsum.photos/400/200"
             },
             "properties": {
                 "padding": 16,
@@ -62,7 +62,7 @@ let complexSample = """
                                 "height": 70
                             },
                             "values": {
-                                "imageUrl": "http://picsum.photos/70/70"
+                                "imageUrl": "https://picsum.photos/70/70"
                             }
                         },
                         {
@@ -100,7 +100,7 @@ let complexSample = """
                                 "height": 70
                             },
                             "values": {
-                                "imageUrl": "http://picsum.photos/70/70"
+                                "imageUrl": "https://picsum.photos/70/70"
                             }
                         },
                         {

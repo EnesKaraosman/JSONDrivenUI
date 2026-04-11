@@ -20,6 +20,7 @@
 		AA000005000000000000000A /* NavigationSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000005000000000000000B /* NavigationSample.swift */; };
 		AA000006000000000000000A /* BuilderSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000006000000000000000B /* BuilderSample.swift */; };
 		AA000007000000000000000A /* LiveEditorSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000007000000000000000B /* LiveEditorSample.swift */; };
+		AA000008000000000000000A /* SwiftUIParserSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000008000000000000000B /* SwiftUIParserSample.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		AA000005000000000000000B /* NavigationSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationSample.swift; sourceTree = "<group>"; };
 		AA000006000000000000000B /* BuilderSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuilderSample.swift; sourceTree = "<group>"; };
 		AA000007000000000000000B /* LiveEditorSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveEditorSample.swift; sourceTree = "<group>"; };
+		AA000008000000000000000B /* SwiftUIParserSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftUIParserSample.swift; sourceTree = "<group>"; };
 		F470BA722B3232C700519DAA /* Complex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Complex.swift; sourceTree = "<group>"; };
 		F470BA742B32343300519DAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F4F42B7E2B322F5E002433B4 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -63,6 +65,7 @@
 				AA000005000000000000000B /* NavigationSample.swift */,
 				AA000006000000000000000B /* BuilderSample.swift */,
 				AA000007000000000000000B /* LiveEditorSample.swift */,
+				AA000008000000000000000B /* SwiftUIParserSample.swift */,
 			);
 			path = Samples;
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 				AA000005000000000000000A /* NavigationSample.swift in Sources */,
 				AA000006000000000000000A /* BuilderSample.swift in Sources */,
 				AA000007000000000000000A /* LiveEditorSample.swift in Sources */,
+				AA000008000000000000000A /* SwiftUIParserSample.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

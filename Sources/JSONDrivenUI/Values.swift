@@ -7,16 +7,16 @@
 
 import Foundation
 
-public class Values: Codable {
-    var text: String?
-    var imageUrl: String?
-    var systemIconName: String?
-    var localImageName: String?
+public final class Values: Codable, @unchecked Sendable {
+    public var text: String?
+    public var imageUrl: String?
+    public var systemIconName: String?
+    public var localImageName: String?
 
     // Interactive elements
-    var placeholder: String?
-    var actionId: String?
-    var isOn: Bool?
+    public var placeholder: String?
+    public var actionId: String?
+    public var isOn: Bool?
 
     public init() {}
 }
