@@ -13,9 +13,23 @@
 		F4F42B862B322F60002433B4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4F42B852B322F60002433B4 /* Assets.xcassets */; };
 		F4F42B8A2B322F60002433B4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F4F42B892B322F60002433B4 /* Preview Assets.xcassets */; };
 		F4F42B942B323073002433B4 /* JSONDrivenUI in Frameworks */ = {isa = PBXBuildFile; productRef = F4F42B932B323073002433B4 /* JSONDrivenUI */; };
+		AA000001000000000000000A /* BasicSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000001000000000000000B /* BasicSample.swift */; };
+		AA000002000000000000000A /* LayoutSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000002000000000000000B /* LayoutSample.swift */; };
+		AA000003000000000000000A /* InteractiveSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000003000000000000000B /* InteractiveSample.swift */; };
+		AA000004000000000000000A /* StylingSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000004000000000000000B /* StylingSample.swift */; };
+		AA000005000000000000000A /* NavigationSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000005000000000000000B /* NavigationSample.swift */; };
+		AA000006000000000000000A /* BuilderSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000006000000000000000B /* BuilderSample.swift */; };
+		AA000007000000000000000A /* LiveEditorSample.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA000007000000000000000B /* LiveEditorSample.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AA000001000000000000000B /* BasicSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BasicSample.swift; sourceTree = "<group>"; };
+		AA000002000000000000000B /* LayoutSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LayoutSample.swift; sourceTree = "<group>"; };
+		AA000003000000000000000B /* InteractiveSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveSample.swift; sourceTree = "<group>"; };
+		AA000004000000000000000B /* StylingSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StylingSample.swift; sourceTree = "<group>"; };
+		AA000005000000000000000B /* NavigationSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationSample.swift; sourceTree = "<group>"; };
+		AA000006000000000000000B /* BuilderSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuilderSample.swift; sourceTree = "<group>"; };
+		AA000007000000000000000B /* LiveEditorSample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveEditorSample.swift; sourceTree = "<group>"; };
 		F470BA722B3232C700519DAA /* Complex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Complex.swift; sourceTree = "<group>"; };
 		F470BA742B32343300519DAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		F4F42B7E2B322F5E002433B4 /* Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Example.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -42,6 +56,13 @@
 			isa = PBXGroup;
 			children = (
 				F470BA722B3232C700519DAA /* Complex.swift */,
+				AA000001000000000000000B /* BasicSample.swift */,
+				AA000002000000000000000B /* LayoutSample.swift */,
+				AA000003000000000000000B /* InteractiveSample.swift */,
+				AA000004000000000000000B /* StylingSample.swift */,
+				AA000005000000000000000B /* NavigationSample.swift */,
+				AA000006000000000000000B /* BuilderSample.swift */,
+				AA000007000000000000000B /* LiveEditorSample.swift */,
 			);
 			path = Samples;
 			sourceTree = "<group>";
@@ -163,6 +184,13 @@
 				F4F42B842B322F5E002433B4 /* ContentView.swift in Sources */,
 				F470BA732B3232C700519DAA /* Complex.swift in Sources */,
 				F4F42B822B322F5E002433B4 /* ExampleApp.swift in Sources */,
+				AA000001000000000000000A /* BasicSample.swift in Sources */,
+				AA000002000000000000000A /* LayoutSample.swift in Sources */,
+				AA000003000000000000000A /* InteractiveSample.swift in Sources */,
+				AA000004000000000000000A /* StylingSample.swift in Sources */,
+				AA000005000000000000000A /* NavigationSample.swift in Sources */,
+				AA000006000000000000000A /* BuilderSample.swift in Sources */,
+				AA000007000000000000000A /* LiveEditorSample.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

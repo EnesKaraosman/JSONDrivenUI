@@ -7,9 +7,16 @@
 
 import Foundation
 
-internal class Values: Codable {
+public class Values: Codable {
     var text: String?
     var imageUrl: String?
     var systemIconName: String?
     var localImageName: String?
+
+    // Interactive elements
+    var placeholder: String?
+    var actionId: String?
+    var isOn: Bool?
+
+    public init() {}
 }

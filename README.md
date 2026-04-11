@@ -1,380 +1,160 @@
 # JSONDrivenUI
 
-Convert your json into native `View`s
+Convert JSON into native SwiftUI views, or build JSON from a SwiftUI-like DSL.
 
-Simply construct `JSONDataView(json: Data)` view to setup UI.
+**Platforms:** iOS 17+ | macOS 14+  
+**Swift:** 5.9+
 
-OK JSON but how? 
+## Installation
 
-* Specify your view's `type` ([ViewType](../main/Sources/JSONDrivenUI/ViewType.swift))
-* `properties` of it ([ViewProperties](../main/Sources/JSONDrivenUI/ViewProperties.swift) )
-* `values` (like text, imageUrl, systemIconName, localImageName) ([Values](../main/Sources/JSONDrivenUI/Values.swift) )
-* `subviews` (for stacks, list & scrollView)
+Add via Swift Package Manager:
 
+```swift
+.package(url: "https://github.com/EnesKaraosman/JSONDrivenUI.git", from: "2.0.0")
+```
 
-### Supported View Types
-<details>
-  <summary>Image</summary>
-  
-- For images we have 3 options. (Order is also like below in case more than 1 set)
-    * systemIconName
-    * localImageName
-    * imageUrl
-     
-```json
-{
-  "type": "Image",
-  "values": {
-      "systemIconName": "person.crop.circle"
-  },
-  "properties": {
-    "width": 60,
-    "height": 60
-  }
+## Quick Start
+
+```swift
+import JSONDrivenUI
+
+// From JSON string
+JSONDataView(jsonString: """
+    { "type": "Text", "values": { "text": "Hello World" } }
+""")
+
+// From Data
+JSONDataView(json: myJSONData)
+
+// With action handling
+JSONDataView(jsonString: myJSON) { actionId in
+    print("Tapped: \(actionId)")
 }
 ```
 
-`resizable()` & `scaledToFit()` modifiers applied by default.
+## Supported View Types
 
-</details>
+| Type | Description | Key Properties |
+|------|-------------|----------------|
+| `Text` | Text label | `font`, `fontWeight` |
+| `Image` | System, local, or remote image | `systemIconName`, `localImageName`, `imageUrl` |
+| `VStack` | Vertical stack | `spacing`, `horizontalAlignment` |
+| `HStack` | Horizontal stack | `spacing`, `verticalAlignment` |
+| `ZStack` | Depth stack | — |
+| `LazyVStack` | Lazy vertical stack | `spacing`, `horizontalAlignment` |
+| `LazyHStack` | Lazy horizontal stack | `spacing`, `verticalAlignment` |
+| `ScrollView` | Scrollable container | `axis`, `showsIndicators` |
+| `List` | List container | — |
+| `Grid` | Grid layout | `spacing` |
+| `GridRow` | Row inside Grid | — |
+| `Button` | Tappable button | `actionId`, `text` |
+| `Toggle` | On/off switch | `text`, `isOn`, `actionId` |
+| `TextField` | Text input | `placeholder`, `actionId` |
+| `NavigationStack` | Navigation container | — |
+| `NavigationLink` | Push navigation | `text` (first subview = destination) |
+| `Color` | Color fill | `foregroundColor` |
+| `Rectangle` | Rectangle shape | — |
+| `Circle` | Circle shape | — |
+| `Spacer` | Flexible space | `minLength` |
+| `Divider` | Line separator | — |
 
-<details>
-    <summary>Text</summary>
+## Supported Properties
 
-    * font (largeTitle, title, headline, subheadline, body, callout, footnote, caption)
-    * fontWeight (ultraLight, thin, light, regular, medium, semibold, bold, heavy, black)
+| Property | Type | Description |
+|----------|------|-------------|
+| `font` | String | `largeTitle`, `title`, `headline`, `subheadline`, `body`, `callout`, `footnote`, `caption` |
+| `fontWeight` | String | `ultraLight`, `thin`, `light`, `regular`, `medium`, `semibold`, `bold`, `heavy`, `black` |
+| `foregroundColor` | String | Hex color (`#FF0000`) |
+| `backgroundColor` | String | Hex color |
+| `padding` | Int | Padding on all edges |
+| `spacing` | Int | Stack spacing |
+| `width` / `height` | Float | Fixed dimensions |
+| `maxWidth` / `maxHeight` | Float | Maximum dimensions |
+| `cornerRadius` | Float | Corner rounding |
+| `clipShape` | String | `circle`, `capsule`, `rectangle` |
+| `opacity` | Float | 0.0 to 1.0 |
+| `rotation` | Float | Degrees |
+| `blur` | Float | Blur radius |
+| `grayscale` | Float | 0.0 to 1.0 |
+| `shadowRadius` | Float | Shadow blur radius |
+| `shadowColor` | String | Hex color |
+| `shadowX` / `shadowY` | Float | Shadow offset |
+| `borderColor` | String | Hex color |
+| `borderWidth` | Int | Border thickness |
+| `accessibilityLabel` | String | VoiceOver label |
+| `accessibilityHint` | String | VoiceOver hint |
+| `accessibilityHidden` | Bool | Hide from VoiceOver |
 
-```json
+## Action Handling
+
+Interactive elements (`Button`, `Toggle`, `TextField`) support action callbacks:
+
+```swift
+JSONDataView(jsonString: """
 {
-    "type": "Text",
-    "values": {
-        "text": "Enes Karaosman"
-    },
-    "properties": {
-        "fontWeight": "semibold",
-        "font": "body"
+    "type": "Button",
+    "values": { "actionId": "my_button", "text": "Tap Me" }
+}
+""") { actionId in
+    switch actionId {
+    case "my_button": print("Button tapped!")
+    default: break
     }
 }
 ```
 
-</details>
+## Builder DSL (SwiftUI-like to JSON)
 
-<details>
-    <summary>VStack</summary>
+Build JSON programmatically using a familiar SwiftUI-like syntax:
 
-    * spacing: Int
-    * horizontalAlignment: (leading, center, trailing) // default is center
+```swift
+import JSONDrivenUI
 
-```json
-{
-    "type": "VStack",
-    "properties": {
-        "spacing": 8,
-        "horizontalAlignment": "leading",
-        ..
-    },
-    "subviews": [
-        ...
-    ]
-}
-```
-
-</details>
-
-
-<details>
-    <summary>HStack</summary>
-
-    * spacing: Int
-    * verticalAlignment: (top, bottom, center, firstTextBaseline, lastTextBaseline) // default is center
-
-```json
-{
-    "type": "HStack",
-    "properties": {
-        "spacing": 8,
-        "verticalAlignment": "top",
-        ..
-    },
-    "subviews": [
-        ...
-    ]
-}
-```
-
-</details>
-
-<details>
-    <summary>ZStack</summary>
-
-
-```json
-{
-  "type": "ZStack",
-  "subviews": [
-    {
-      "type": "Circle",
-      "properties": {
-        "foregroundColor": "#ff0000",
-        "width": 200
-      }
-    },
-    {
-      "type": "Circle",
-      "properties": {
-        "foregroundColor": "#00ff00",
-        "width": 150
-      }
-    },
-    {
-      "type": "Circle",
-      "properties": {
-        "foregroundColor": "#0000ff",
-        "width": 100
-      }
-    }
-  ]
-}
-```
-
-</details>
-
-<details>
-    <summary>List</summary>
-
-
-```json
-{
-  "type": "List",
-  "subviews": [
-    { ... },
-    { ... },
-    { ... }
-  ]
-}
-```
-
-</details>
-
-<details>
-    <summary>ScrollView</summary>
-
-Scroll view content (subviews) automatically placed in Stack according to given axis.
-<br>
-If axis is vertical placed in VStack, otherwise in HStack.
-
-```json
-{
-  "type": "ScrollView",
-  "properties": {
-    "axis": "vertical",
-    "showsIndicators": true
-  }
-  "subviews": [
-    { ... },
-    { ... },
-    { ... }
-  ]
-}
-```
-
-</details>
-
-* Spacer (`minLenght: Int?`)
-* Rectangle
-* Circle
-* Divider
-
-#### Examples
-
-<details>
-  <summary>
-    <img src="../main/Sources/JSONDrivenUI/Preview/profile_row.png" width="240"/>
-  </summary>
-  
-<!--   <img src="../main/Sources/JSONDrivenUI/Preview/profile_row.png" width="240"/> -->
-    
-```json
-{
-  "type": "HStack",
-  "properties": {
-    "height": 100,
-    "padding": 16,
-    "spacing": 16
-  },
-  "subviews": [
-    {
-      "type": "Image",
-      "values": {
-          "systemIconName": "person.crop.circle"
-      },
-      "properties": {
-        "width": 60,
-        "height": 60
-      }
-    },
-    {
-      "type": "VStack",
-      "properties": {
-        "foregroundColor": "#f0f00f",
-        "spacing": 8,
-        "horizontalAlignment": "leading"
-      },
-      "subviews": [
-        {
-          "type": "Text",
-          "values": {
-            "text": "Enes Karaosman"
-          },
-          "properties": {
-            "fontWeight": "semibold",
-            "foregroundColor": "#000000"
-          }
-        },
-        {
-          "type": "Text",
-          "values": {
-            "text": "Here is a bit description like text"
-          },
-          "properties": {
-              "foregroundColor": "#070707"
-          }
+let json = buildJSONString {
+    VStackNode(spacing: 16) {
+        TextNode("Hello World", font: "title", fontWeight: "bold")
+        HStackNode(spacing: 8) {
+            ImageNode(systemName: "star.fill")
+                .foregroundColor("#FFD700")
+                .frame(width: 24, height: 24)
+            TextNode("Favorited")
         }
-      ]
+        ButtonNode("Tap Me", actionId: "my_action")
+            .padding(12)
+            .backgroundColor("#007AFF")
+            .foregroundColor("#FFFFFF")
+            .cornerRadius(10)
     }
-  ]
+    .padding(20)
 }
+
+// Render the generated JSON
+JSONDataView(jsonString: json)
 ```
 
-</details>
+Available DSL nodes: `VStackNode`, `HStackNode`, `ZStackNode`, `ScrollViewNode`, `ListNode`, `GridNode`, `GridRowNode`, `TextNode`, `ImageNode`, `ButtonNode`, `ToggleNode`, `TextFieldNode`, `NavigationStackNode`, `NavigationLinkNode`, `SpacerNode`, `DividerNode`, `RectangleNode`, `CircleNode`, `ColorNode`
 
-<details>
-  <summary>
-    <img src="../main/Sources/JSONDrivenUI/Preview/complex.png" width="240"/>
-  </summary>
-    
-```json
-{
-    "type": "VStack",
-    "subviews": [
-        {
-            "type": "Text",
-            "properties": {
-                "font": "title"
-            },
-            "values": {
-                "text": "LARGE TITLE TEXT"
-            }
-        },
-        {
-            "type": "Image",
-            "values": {
-                "imageUrl": "http://picsum.photos/400/200"
-            },
-            "properties": {
-                "padding": 16,
-                "height": 200
-            }
-        },
-        {
-            "type": "Text",
-            "properties": {
-                "padding": 16,
-                "font": "title",
-                "fontWeight": "semibold"
-            },
-            "values": {
-                "text": "Semibold Title"
-            }
-        },
-        {
-            "type": "List",
-            "properties": {
-                "horizontalAlignment": "leading",
-                "spacing": 16,
-                "padding": 8
-            },
-            "subviews": [
-                {
-                    "type": "HStack",
-                    "properties": {
-                        "foregroundColor": "#001238",
-                        "spacing": 8
-                    },
-                    "subviews": [
-                        {
-                            "type": "Image",
-                            "properties": {
-                                "height": 70
-                            },
-                            "values": {
-                                "imageUrl": "http://picsum.photos/70/70"
-                            }
-                        },
-                        {
-                            "type": "VStack",
-                            "properties": {
-                                "spacing": 4,
-                                "horizontalAlignment": "leading"
-                            },
-                            "subviews": [
-                                {
-                                    "type": "Text",
-                                    "values": { "text" : "Item.1 Title" }
-                                },
-                                {
-                                    "type": "Text",
-                                    "properties": {
-                                        "foregroundColor": "#828282"
-                                    },
-                                    "values": { "text" : "Here is multiline description text in VStack which is inside HStack" }
-                                }
-                            ]
-                        }
-                    ]
-                },
-                {
-                    "type": "HStack",
-                    "properties": {
-                        "foregroundColor": "#001238",
-                        "spacing": 8
-                    },
-                    "subviews": [
-                        {
-                            "type": "Image",
-                            "properties": {
-                                "height": 70
-                            },
-                            "values": {
-                                "imageUrl": "http://picsum.photos/70/70"
-                            }
-                        },
-                        {
-                            "type": "VStack",
-                            "properties": {
-                                "spacing": 4,
-                                "horizontalAlignment": "leading"
-                            },
-                            "subviews": [
-                                {
-                                    "type": "Text",
-                                    "values": { "text" : "Item.2 Title" }
-                                },
-                                {
-                                    "type": "Text",
-                                    "properties": {
-                                        "foregroundColor": "#828282"
-                                    },
-                                    "values": { "text" : "Here is second multiline description text in VStack which is inside HStack" }
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        }
-    ]
-}
-```
+All modifier methods from the properties table are available as chainable calls (`.padding()`, `.foregroundColor()`, `.cornerRadius()`, `.shadow()`, etc.).
 
-</details>
+## Error Handling
+
+In debug builds, invalid JSON shows a descriptive error view with the specific decoding issue. In release builds, a generic fallback message is shown.
+
+## Example App
+
+The `Example/` directory contains a multi-tab demo app showcasing:
+- Basic text & image layouts
+- Grid, Stack, and ScrollView layouts
+- Interactive elements (Button, Toggle, TextField)
+- Visual styling (shadows, rounded corners, opacity, blur, rotation)
+- Navigation with NavigationStack & NavigationLink
+- Builder DSL round-trip demo
+- Live JSON editor
+
+## Dependencies
+
+- [Kingfisher](https://github.com/onevcat/Kingfisher) — Remote image loading and caching
+
+## License
+
+MIT License. See [LICENSE](LICENSE) for details.

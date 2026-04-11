@@ -7,8 +7,9 @@
 
 import SwiftUI
 
-internal protocol PresentableProtocol {    
+@MainActor
+internal protocol PresentableProtocol {
     associatedtype Content: View
-    
+
     func toPresentable() -> Content
 }
