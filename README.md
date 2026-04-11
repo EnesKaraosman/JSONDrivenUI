@@ -39,7 +39,7 @@ Build native SwiftUI views from JSON — or convert SwiftUI code back to JSON.
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/EnesKaraosman/JSONDrivenUI.git", from: "2.0.0")
+    .package(url: "https://github.com/EnesKaraosman/JSONDrivenUI.git", from: "1.0.0")
 ]
 ```
 
