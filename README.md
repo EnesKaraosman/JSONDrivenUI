@@ -5,7 +5,7 @@ Build native SwiftUI views from JSON — or convert SwiftUI code back to JSON.
 [![Swift](https://img.shields.io/badge/Swift-5.9+-orange.svg)](https://swift.org)
 [![Platforms](https://img.shields.io/badge/Platforms-iOS%2017+%20|%20macOS%2014+-blue.svg)](https://developer.apple.com/swift/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Tests](https://img.shields.io/badge/Tests-160%20passing-brightgreen.svg)]()
+[![Swift CI](https://github.com/EnesKaraosman/JSONDrivenUI/actions/workflows/swift.yml/badge.svg)](https://github.com/EnesKaraosman/JSONDrivenUI/actions/workflows/swift.yml)
 
 ---
 
